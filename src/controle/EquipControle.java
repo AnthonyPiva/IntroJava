@@ -5,6 +5,8 @@
  */
 package controle;
 
+import Armazenamento.MeioArmazenamento;
+import java.util.ArrayList;
 import java.util.Date;
 import modelo.Equip;
 
@@ -20,4 +22,11 @@ public class EquipControle {
         a.Salvar();
     }
     
+    public static ArrayList<Equip> ObterLista(){
+        return Equip.ObterLista();
+    }
+    
+    public static Equip ObterEquipPeloNPatrimonio(String patrimonio){
+        return Equip.ObteEquipPeloNPatrimonio(patrimonio);
+    }
 }

@@ -7,6 +7,7 @@ package modelo;
 
 
 import Armazenamento.MeioArmazenamento;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -17,9 +18,28 @@ public class Equip {
     private String nome, patrimonio;
     private Date dataAq, dataGarantia;
     private float Valor;
+    private ArrayList<Manutencao> listaManutencao;
+    
+    public Equip(){
+        this.listaManutencao = new ArrayList<>();
+    }
+    
+    public ArrayList<Manutencao> getListaManutencoes(){
+        return listaManutencao;
+    }
+    public static ArrayList<Equip> ObterLista(){
+        return MeioArmazenamento.equipamentos;
+    }
     public void Salvar(){
         MeioArmazenamento.equipamentos.add(this);
-    };
+    }
+    public static Equip ObteEquipPeloNPatrimonio(String patrimonio){
+        for(Equip obj : Equip.ObterLista()){
+            if(obj.getPatrimonio().equals(patrimonio)){
+                return obj;
+            }
+        }return null;
+    }
 
     /**
      * @return the nome
