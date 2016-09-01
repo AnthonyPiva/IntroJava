@@ -9,6 +9,7 @@ import Armazenamento.MeioArmazenamento;
 import java.util.ArrayList;
 import java.util.Date;
 import modelo.Equip;
+import modelo.Manutencao;
 
 public class EquipControle {
     
@@ -29,4 +30,13 @@ public class EquipControle {
     public static Equip ObterEquipPeloNPatrimonio(String patrimonio){
         return Equip.ObteEquipPeloNPatrimonio(patrimonio);
     }
+    
+    public static void receberNovaManutencao(String patrimonio, String descricao, Date data, float valor){
+        Equip encontrado = Equip.ObteEquipPeloNPatrimonio(patrimonio);
+        Manutencao novaManu = new Manutencao();
+        novaManu.setData(data);
+        novaManu.setDescricao(descricao);
+        novaManu.setValor(valor);
+        encontrado.adicionaManutencao(novaManu);
+    }  
 }

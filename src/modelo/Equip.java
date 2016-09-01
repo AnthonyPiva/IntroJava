@@ -24,6 +24,16 @@ public class Equip {
         this.listaManutencao = new ArrayList<>();
     }
     
+    public float getTotalGastoManutencoes(){
+        float total = 0;
+        for(Manutencao atual : this.listaManutencao){
+            total += atual.getValor();
+        }
+        return total;
+    }
+    public void adicionaManutencao(Manutencao manutencao){
+        this.listaManutencao.add(manutencao);
+    }
     public ArrayList<Manutencao> getListaManutencoes(){
         return listaManutencao;
     }

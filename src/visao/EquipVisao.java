@@ -86,7 +86,7 @@ public class EquipVisao {
                 System.out.println("Erro: Equipamento Não Encontrado");
                 Menu.ExibirMenu();
             }else{
-                
+                ManutencaoVisao.exibirFormularioCadastroManutencao(valorDigitado);
             }
         }
     }
