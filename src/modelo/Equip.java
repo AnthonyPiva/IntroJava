@@ -7,6 +7,11 @@ package modelo;
 
 
 import Armazenamento.MeioArmazenamento;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -24,6 +29,8 @@ public class Equip {
         this.listaManutencao = new ArrayList<>();
     }
     
+
+    
     public float getTotalGastoManutencoes(){
         float total = 0;
         for(Manutencao atual : this.listaManutencao){
@@ -37,20 +44,7 @@ public class Equip {
     public ArrayList<Manutencao> getListaManutencoes(){
         return listaManutencao;
     }
-    public static ArrayList<Equip> ObterLista(){
-        return MeioArmazenamento.equipamentos;
-    }
-    public void Salvar(){
-        MeioArmazenamento.equipamentos.add(this);
-    }
-    public static Equip ObteEquipPeloNPatrimonio(String patrimonio){
-        for(Equip obj : Equip.ObterLista()){
-            if(obj.getPatrimonio().equals(patrimonio)){
-                return obj;
-            }
-        }return null;
-    }
-
+    
     /**
      * @return the nome
      */
